@@ -3,12 +3,14 @@ sap.ui.define([
 		"zjblessons/ControlTaskMoshkareva/controller/BaseController",
 		"sap/ui/model/json/JSONModel",
 		"sap/ui/core/routing/History",
-		"zjblessons/ControlTaskMoshkareva/model/formatter"
+	"zjblessons/ControlTaskMoshkareva/model/formatter",
+	"sap/m/MessageToast",
 	], function (
 		BaseController,
 		JSONModel,
 		History,
-		formatter
+	formatter,
+	MessageToast,
 	) {
 		"use strict";
 
@@ -16,22 +18,13 @@ sap.ui.define([
 
 			formatter: formatter,
 
-			onInit : function () {
-				var iOriginalBusyDelay,
-					oViewModel = new JSONModel({
-						busy : true,
-						delay : 0
-					});
-
+			onInit: function () {
+				const oViewModel = new JSONModel({
+				});
 				this.getRouter().getRoute("object").attachPatternMatched(this._onObjectMatched, this);
-
-				iOriginalBusyDelay = this.getView().getBusyIndicatorDelay();
-				this.setModel(oViewModel, "objectView");
-				this.getOwnerComponent().getModel().metadataLoaded().then(function () {
-						oViewModel.setProperty("/delay", iOriginalBusyDelay);
-					}
-				);
 			},
+				
+				
 
 			onNavBack : function() {
 				var sPreviousHash = History.getInstance().getPreviousHash();
@@ -50,6 +43,7 @@ sap.ui.define([
 					});
 					this._bindView("/" + sObjectPath);
 				}.bind(this));
+				MessageToast.show("Вы перешли к материалу с ID: " + sObjectId);
 			},
 
 			_bindView : function (sObjectPath) {

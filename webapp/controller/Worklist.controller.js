@@ -59,7 +59,6 @@ sap.ui.define(
           }
         },
 				onRowSelect: function (oEvent) {
-					debugger;
 					var oSelectedItem = oEvent.getParameter("rowContext");
 					if (oSelectedItem) {
 							var sObjectId = oSelectedItem.getProperty("MaterialID");
