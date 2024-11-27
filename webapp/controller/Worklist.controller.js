@@ -12,9 +12,13 @@ sap.ui.define([
 
 			formatter: formatter,
 
-				onInit : function () {
-			
+			onInit: function () {
+				const oViewModel = new JSONModel({
+
+        });
+        this.setModel(oViewModel, "worklistView");
 			},
+			
 				
 			onSearchFieldLiveChange: function (oEvent) {
 				

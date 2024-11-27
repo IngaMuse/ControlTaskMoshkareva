@@ -1,27 +1,64 @@
 <mvc:View
 	controllerName="zjblessons.ControlTaskMoshkareva.controller.Worklist"
-	xmlns="sap.m"
-	xmlns:table="sap.ui.table"
+	xmlns="sap.ui.table"
 	xmlns:mvc="sap.ui.core.mvc"
-	>
+	xmlns:u="sap.ui.unified"
+	xmlns:c="sap.ui.core"
+	xmlns:m="sap.m"
+    height="100%"
+>
+	<m:Page title="Control Task">
+		<m:customHeader>
+			<m:OverflowToolbar>
+				<m:Title text="Materials" />
+				<m:ToolbarSpacer />
+				<m:SearchField
+					id="searchField"
+					liveChange="onSearchFieldLiveChange"
+					placeholder="Search..."
+				/>
+			</m:OverflowToolbar>
+		</m:customHeader>
 
-<Page title="Control Task">
-        <customHeader>
-            <OverflowToolbar>
-                <Title text="Materials" />
-                <ToolbarSpacer />
-                <SearchField
-                    id="searchField"
-                    liveChange="onSearchFieldLiveChange"
-                    placeholder="Search..." />
-            </OverflowToolbar>
-        </customHeader>
-        
-        <content>
-            
-        </content>
-    </Page>
+		<m:content>
+<Table
+				rows="{/zjblessons_base_Materials}"
+				selectionMode="MultiToggle"
+				paste="onPaste"
+				ariaLabelledBy="title">
+				<extension>
+					<m:OverflowToolbar style="Clear">
+						<!-- <m:Title id="title" text="Materials"/> -->
+					</m:OverflowToolbar>
+				</extension>
+				<columns>
+					<Column width="11rem">
+						<m:Label text="MaterialId" />
+						<template>
+							<m:Text text="{MaterialId}" wrapping="false" />
+						</template>
+					</Column>
+					<Column width="11rem">
+						<m:Label text="Version" />
+						<template>
+							<m:Text text="{Version}" wrapping="false" />
+						</template>
+					</Column>
+					<Column width="11rem">
+						<m:Label text="MaterialText" />
+						<template>
+							<m:Text text="{MaterialText}" wrapping="false" />
+						</template>
+					</Column>
+	<Column width="11rem">
+						<m:Label text="MaterialDescription" />
+						<template>
+							<m:Text text="{MaterialDescription}" wrapping="false" />
+						</template>
+					</Column>
 
-
-
+				</columns>
+			</Table>
+		</m:content>
+	</m:Page>
 </mvc:View>
