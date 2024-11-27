@@ -23,12 +23,16 @@
 		<m:content>
 <Table
 				rows="{/zjblessons_base_Materials}"
+				id="gridTable"
 				selectionMode="MultiToggle"
 				paste="onPaste"
 				ariaLabelledBy="title">
 				<extension>
 					<m:OverflowToolbar style="Clear">
-						<!-- <m:Title id="title" text="Materials"/> -->
+						<m:Button
+                    icon="sap-icon://person-placeholder"
+                    text="Show Student Info"
+                    press="onShowStudentInfoPress" />
 					</m:OverflowToolbar>
 				</extension>
 				<columns>
@@ -56,7 +60,6 @@
 							<m:Text text="{MaterialDescription}" wrapping="false" />
 						</template>
 					</Column>
-
 				</columns>
 			</Table>
 		</m:content>
