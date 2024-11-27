@@ -16,14 +16,6 @@ sap.ui.define([
 
 			formatter: formatter,
 
-			/* =========================================================== */
-			/* lifecycle methods                                           */
-			/* =========================================================== */
-
-			/**
-			 * Called when the worklist controller is instantiated.
-			 * @public
-			 */
 			onInit : function () {
 				// Model used to manipulate control states. The chosen values make sure,
 				// detail page is busy indication immediately so there is no break in
