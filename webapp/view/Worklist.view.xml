@@ -24,6 +24,7 @@
 <Table
 				rows="{/zjblessons_base_Materials}"
 				id="gridTable"
+				rowSelectionChange="onRowSelect"
 				selectionMode="Single"
 				paste="onPaste"
 				ariaLabelledBy="title">

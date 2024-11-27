@@ -23,7 +23,9 @@ sap.ui.define(
       {
         formatter: formatter,
 
-        onInit: function () {
+				onInit: function () {
+					this.oTable = this.byId("gridTable");
+          this.oModel = this.getView().getModel();
           const oViewModel = new JSONModel({});
           this.setModel(oViewModel, "worklistView");
         },
@@ -37,27 +39,36 @@ sap.ui.define(
             actions: [MessageBox.Action.OK],
             onClose: function (oAction) {},
           });
-				},
-				
-				onShowMaterialIDPress: function (o) {
-					const oTable = this.byId("gridTable");
-					const selectedIndex = oTable.getSelectedIndex();
-					if (selectedIndex !== -1) {
-							var selectedContext = oTable.getContextByIndex(selectedIndex);
-							var materialID = selectedContext.getProperty("MaterialID");
+        },
 
-							MessageBox.show("Selected Material ID: " + materialID, {
-									icon: MessageBox.Icon.INFORMATION,
-									title: "Material Information",
-									actions: [MessageBox.Action.OK],
-									onClose: function () {
-	
-									}
+        onShowMaterialIDPress: function (o) {
+          const oTable = this.byId("gridTable");
+          const selectedIndex = oTable.getSelectedIndex();
+          if (selectedIndex !== -1) {
+            var selectedContext = oTable.getContextByIndex(selectedIndex);
+            var materialID = selectedContext.getProperty("MaterialID");
+
+            MessageBox.show("Selected Material ID: " + materialID, {
+              icon: MessageBox.Icon.INFORMATION,
+              title: "Material Information",
+              actions: [MessageBox.Action.OK],
+              onClose: function () {},
+            });
+          } else {
+            MessageBox.warning("Please select a material from the table.");
+          }
+        },
+				onRowSelect: function (oEvent) {
+					debugger;
+					var oSelectedItem = oEvent.getParameter("rowContext");
+					if (oSelectedItem) {
+							var sObjectId = oSelectedItem.getProperty("MaterialID");
+							var oRouter = sap.ui.core.UIComponent.getRouterFor(this);
+							this.getRouter().navTo("object", {
+									objectId: sObjectId
 							});
-					} else {
-							MessageBox.warning("Please select a material from the table.");
 					}
-			}
+			  },
       }
     );
   }
