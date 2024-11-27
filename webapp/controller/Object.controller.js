@@ -20,6 +20,8 @@ sap.ui.define([
 
 			onInit: function () {
 				const oViewModel = new JSONModel({
+					sSelectedTab: 'Form',
+						bEditMode: false,
 				});
 				this.getRouter().getRoute("object").attachPatternMatched(this._onObjectMatched, this);
 			},
@@ -84,9 +86,10 @@ sap.ui.define([
 				oViewModel.setProperty("/busy", false);
 			},
 
-			onTabSelect: function (oEvent) {
-				const oSelectedKey = oEvent.getParameter("selectedKey");
-		}
+			onIconTabBarSelect(oEvent) {
+				const oSelectedKey = oEvent.getParameter('selectedKey');
+				this.getModel('objectView').setProperty('/sSelectedTab', oSelectedKey);
+			},
 
 		});
 

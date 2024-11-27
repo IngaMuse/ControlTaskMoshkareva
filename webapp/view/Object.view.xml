@@ -6,16 +6,52 @@
 
 	<Page title="Object Details">
         <content>
-            <IconTabBar select=".onTabSelect">
+            <IconTabBar 
+						select=".onIconTabBarSelect"
+						expandable="false"
+				id='idIconTabBar'
+				headerMode="Inline"
+				selectedKey="{= ${objectView>/sSelectedTab}}">
                 <items>
                     <IconTabFilter
                         icon="sap-icon://form"
-                        text="Form">
-                        <Text text="Form"/>
+                        text="Form"
+												key="Form">
+                        <VBox>
+												<List>
+												<CustomListItem>
+									<VBox class="supUiContentPadding">
+										<Label
+											text="MaterialID"
+											labelFor="MaterialID"
+										/>
+										<Input
+											id='MaterialID'
+											editable="{= ${objectView>/bEditMode}}"
+											value="{MaterialID}"
+										/>
+									</VBox>
+								</CustomListItem>
+								<CustomListItem>
+									<VBox class="supUiContentPadding">
+										<Label
+											text="MaterialText"
+											labelFor="MaterialText"
+										/>
+										<Input
+											id=''
+											editable="{= ${objectView>/bEditMode}}"
+											value="{MaterialText}"
+										/>
+									</VBox>
+								</CustomListItem>
+												</List>
+												</VBox>
                     </IconTabFilter>
                     <IconTabFilter
                         icon="sap-icon://notes"
-                        text="Panel">
+                        text="Panel"
+												key="Panel">
                         <Text text="Panel"/>
                     </IconTabFilter>
                 </items>
