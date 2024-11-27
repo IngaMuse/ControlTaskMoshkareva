@@ -52,7 +52,14 @@
                         icon="sap-icon://notes"
                         text="Panel"
 												key="Panel">
-                        <Text text="Panel"/>
+                        <Panel expandable="true" expanded="false" headerText="Первая сворачивающаяся панель">
+                <Text text="Содержимое первой панели."/>
+            </Panel>
+
+            <!-- Вторая панель -->
+            <Panel expandable="true" expanded="false" headerText="Вторая сворачивающаяся панель">
+                <Text text="Содержимое второй панели."/>
+            </Panel>
                     </IconTabFilter>
                 </items>
             </IconTabBar>
