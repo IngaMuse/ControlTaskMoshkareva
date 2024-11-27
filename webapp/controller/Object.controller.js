@@ -56,11 +56,11 @@ sap.ui.define([
 						change: this._onBindingChange.bind(this),
 						dataRequested: function () {
 							oDataModel.metadataLoaded().then(function () {
-								oViewModel.setProperty("/busy", true);
+						
 							});
 						},
 						dataReceived: function () {
-							oViewModel.setProperty("/busy", false);
+						
 						}
 					}
 				});
@@ -82,7 +82,11 @@ sap.ui.define([
 					sObjectName = oObject.MaterialID;
 
 				oViewModel.setProperty("/busy", false);
-			}
+			},
+
+			onTabSelect: function (oEvent) {
+				const oSelectedKey = oEvent.getParameter("selectedKey");
+		}
 
 		});
 

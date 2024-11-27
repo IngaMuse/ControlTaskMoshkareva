@@ -4,28 +4,23 @@
 	xmlns:mvc="sap.ui.core.mvc"
 	xmlns:semantic="sap.f.semantic">
 
-	<semantic:SemanticPage
-		id="page"
-		headerPinnable="false"
-		toggleHeaderOnTitleClick="false"
-		busy="{objectView>/busy}"
-		busyIndicatorDelay="{objectView>/delay}">
-
-		<semantic:titleHeading>
-			<Title text="{MaterialID}" />
-		</semantic:titleHeading>
-
-		<semantic:headerContent>
-			<ObjectNumber
-				number="{
-					path: 'Rating',
-					formatter: '.formatter.numberUnit'
-				}"
-			/>
-		</semantic:headerContent>
-
-
-
-	</semantic:SemanticPage>
+	<Page title="Object Details">
+        <content>
+            <IconTabBar select=".onTabSelect">
+                <items>
+                    <IconTabFilter
+                        icon="sap-icon://form"
+                        text="Form">
+                        <Text text="Form"/>
+                    </IconTabFilter>
+                    <IconTabFilter
+                        icon="sap-icon://notes"
+                        text="Panel">
+                        <Text text="Panel"/>
+                    </IconTabFilter>
+                </items>
+            </IconTabBar>
+        </content>
+    </Page>
 
 </mvc:View>
