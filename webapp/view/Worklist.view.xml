@@ -24,7 +24,7 @@
 <Table
 				rows="{/zjblessons_base_Materials}"
 				id="gridTable"
-				selectionMode="MultiToggle"
+				selectionMode="Single"
 				paste="onPaste"
 				ariaLabelledBy="title">
 				<extension>
@@ -33,13 +33,16 @@
                     icon="sap-icon://person-placeholder"
                     text="Show Student Info"
                     press="onShowStudentInfoPress" />
+						<m:Button
+                    text="Show Material ID"
+                    press="onShowMaterialIDPress"/>
 					</m:OverflowToolbar>
 				</extension>
 				<columns>
 					<Column width="11rem">
-						<m:Label text="MaterialId" />
+						<m:Label text="MaterialID" />
 						<template>
-							<m:Text text="{MaterialId}" wrapping="false" />
+							<m:Text text="{MaterialID}" wrapping="false" />
 						</template>
 					</Column>
 					<Column width="11rem">
